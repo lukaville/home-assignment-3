@@ -8,6 +8,19 @@ from calculator import calculate
 import unittest
 
 
+class CalculatorTestCase(unittest.TestCase):
+    def test_calculator(self):
+        self.assertEqual(calculate("+", 2, 3), 5)
+
+    def test_unsupported_operator(self):
+        with self.assertRaises(ValueError):
+            calculate("$", 2, 3)
+
+    def test_incorrect_arg_count(self):
+        with self.assertRaises(ValueError):
+            calculate("mod", 1, 2, 3)
+
+
 class OperatorsTestCase(unittest.TestCase):
     def setUp(self):
         self.add = operators["+"]["function"]
@@ -31,6 +44,8 @@ class OperatorsTestCase(unittest.TestCase):
     def test_div(self):
         self.assertEqual(self.div(6, 2), 3)
         self.assertAlmostEqual(self.div(3, 2), 1.5)
+        with self.assertRaises(ZeroDivisionError):
+            self.div(1, 0)
 
     def test_mod(self):
         self.assertEqual(self.mod(8, 6), 2)

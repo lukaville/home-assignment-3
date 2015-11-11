@@ -6,7 +6,10 @@ from calculator import calculate
 
 def main():
     try:
-        print(calculate("+", 1, 2))
+        opeator = str(raw_input("Enter operator name: "))
+        arguments_string = str(raw_input("Enter arguments: "))
+        arguments = map(lambda x: int(x), arguments_string.split())
+        print(calculate(opeator, *arguments))
     except Exception as e:
         print("Sorry, error occurred: " + e.message)
 
