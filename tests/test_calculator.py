@@ -49,4 +49,4 @@ class OperatorsTestCase(unittest.TestCase):
 
     def test_mod(self):
         self.assertEqual(self.mod(8, 6), 2)
-        self.assertAlmostEqual(self.mod(9.2, 8), 1.19999999)
+        self.assertNotEqual(self.mod(9.2, 8), 1.2)
