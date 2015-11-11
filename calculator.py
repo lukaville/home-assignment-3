@@ -1,6 +1,6 @@
 # coding: utf-8
 
-functions = {
+operators = {
     "+": {"function": lambda x, y: x + y, "arg_number": 2},
     "-": {"function": lambda x, y: x - y, "arg_number": 2},
     "*": {"function": lambda x, y: x * y, "arg_number": 2},
@@ -9,7 +9,12 @@ functions = {
 }
 
 
-def calculate(function, *args):
-    if function not in functions:
+def calculate(op, *args):
+    if op not in operators:
         raise ValueError("Operator not supported")
-    return functions[function]["function"](*args)
+
+    opeator = operators[op]
+    if len(args) != opeator["arg_number"]:
+        raise ValueError("Argument count mismatch")
+
+    return opeator["function"](*args)
