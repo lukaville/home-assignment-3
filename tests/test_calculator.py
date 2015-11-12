@@ -6,6 +6,7 @@ sys.path.append('../')
 from calculator import operators
 from calculator import calculate
 import unittest
+from decimal import Decimal
 
 
 class CalculatorTestCase(unittest.TestCase):
@@ -19,6 +20,10 @@ class CalculatorTestCase(unittest.TestCase):
     def test_incorrect_arg_count(self):
         with self.assertRaises(ValueError):
             calculate("mod", 1, 2, 3)
+
+    def test_floats(self):
+        self.assertEqual(calculate("+", "0.1", "0.2"), Decimal("0.3"))
+        self.assertEqual(calculate("/", "12", "0.1"), Decimal("120"))
 
 
 class OperatorsTestCase(unittest.TestCase):
