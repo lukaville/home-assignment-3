@@ -35,24 +35,24 @@ class OperatorsTestCase(unittest.TestCase):
         self.mod = operators["%"]["function"]
 
     def test_add(self):
-        self.assertEqual(self.add(4, 2), 6)
-        self.assertAlmostEqual(self.add(4, 2.23), 6.23)
+        self.assertEqual(self.add(4, 2), Decimal(6))
+        self.assertAlmostEqual(self.add(4, 2.23), Decimal(6.23))
 
     def test_sub(self):
-        self.assertEqual(self.sub(4, 6), -2)
-        self.assertAlmostEqual(self.sub(4, 6.23), -2.23)
+        self.assertEqual(self.sub(4, 6), Decimal(-2))
+        self.assertAlmostEqual(self.sub(4, 6.23), Decimal(-2.23))
 
     def test_mul(self):
-        self.assertEqual(self.mul(4, 6), 24)
-        self.assertAlmostEqual(self.mul(4, 6.23), 24.92)
+        self.assertEqual(self.mul(4, 6), Decimal(24))
+        self.assertAlmostEqual(self.mul(4, 6.23), Decimal(24.92))
 
     def test_div(self):
-        self.assertEqual(self.div(6, 2), 3)
-        self.assertAlmostEqual(self.div(3, 2), 1.5)
+        self.assertEqual(self.div(6, 2), Decimal(3))
+        self.assertAlmostEqual(self.div(3, 2), Decimal(1.5))
         with self.assertRaises(ZeroDivisionError):
             self.div(1, 0)
 
     def test_mod(self):
-        self.assertEqual(self.mod(8, 6), 2)
-        self.assertAlmostEqual(self.mod(1.5, 2), 1.5)
-        self.assertNotEqual(self.mod(9.2, 8), 1.2)
+        self.assertEqual(self.mod(8, 6), Decimal(2))
+        self.assertAlmostEqual(self.mod(1.5, 2), Decimal(1.5))
+        self.assertNotEqual(self.mod(9.2, 8), Decimal(1.2))

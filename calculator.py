@@ -5,11 +5,11 @@ from decimal import Decimal
 
 
 operators = {
-    "+": {"function": lambda x, y: x + y, "arg_number": 2},
-    "-": {"function": lambda x, y: x - y, "arg_number": 2},
-    "*": {"function": lambda x, y: x * y, "arg_number": 2},
-    "/": {"function": lambda x, y: x / y, "arg_number": 2},
-    "%": {"function": lambda x, y: x % y, "arg_number": 2}
+    "+": {"function": lambda x, y: Decimal(x) + Decimal(y), "arg_number": 2},
+    "-": {"function": lambda x, y: Decimal(x) - Decimal(y), "arg_number": 2},
+    "*": {"function": lambda x, y: Decimal(x) * Decimal(y), "arg_number": 2},
+    "/": {"function": lambda x, y: Decimal(x) / Decimal(y), "arg_number": 2},
+    "%": {"function": lambda x, y: Decimal(x) % Decimal(y), "arg_number": 2}
 }
 
 
