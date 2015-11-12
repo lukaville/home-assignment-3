@@ -8,7 +8,7 @@ def main():
     try:
         opeator = str(raw_input("Enter operator name: "))
         arguments_string = str(raw_input("Enter arguments: "))
-        arguments = map(lambda x: float(x), arguments_string.split())
+        arguments = arguments_string.split()
         print(calculate(opeator, *arguments))
     except ValueError as e:
         print("Sorry, error occurred: " + e.message)
